@@ -44,7 +44,7 @@ namespace Splatoon_3_Countdown
             this.backgroundPictureBox.Image = global::Splatoon_3_Countdown.Properties.Resources.LoadingBackground;
             this.backgroundPictureBox.Location = new System.Drawing.Point(0, 0);
             this.backgroundPictureBox.Name = "backgroundPictureBox";
-            this.backgroundPictureBox.Size = new System.Drawing.Size(707, 366);
+            this.backgroundPictureBox.Size = new System.Drawing.Size(871, 447);
             this.backgroundPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.backgroundPictureBox.TabIndex = 0;
             this.backgroundPictureBox.TabStop = false;
@@ -56,9 +56,9 @@ namespace Splatoon_3_Countdown
             this.countdownLabel.BackColor = System.Drawing.Color.Transparent;
             this.countdownLabel.Font = new System.Drawing.Font("Splatfont 2", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.countdownLabel.ForeColor = System.Drawing.Color.White;
-            this.countdownLabel.Location = new System.Drawing.Point(0, 369);
+            this.countdownLabel.Location = new System.Drawing.Point(0, 450);
             this.countdownLabel.Name = "countdownLabel";
-            this.countdownLabel.Size = new System.Drawing.Size(707, 61);
+            this.countdownLabel.Size = new System.Drawing.Size(871, 61);
             this.countdownLabel.TabIndex = 2;
             this.countdownLabel.Text = "0 Days 0 Hours 0 Minutes 0 Seconds";
             this.countdownLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -68,10 +68,9 @@ namespace Splatoon_3_Countdown
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(27)))), ((int)(((byte)(35)))));
-            this.ClientSize = new System.Drawing.Size(707, 429);
+            this.ClientSize = new System.Drawing.Size(871, 510);
             this.Controls.Add(this.countdownLabel);
             this.Controls.Add(this.backgroundPictureBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
