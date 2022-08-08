@@ -10,7 +10,9 @@ namespace Splatoon_3_Countdown
     {
         #region Private Variables
 
-        private const string JSON_ENDPOINT = "";
+        private const string JSON_ENDPOINT = "https://raw.githubusercontent.com/Dan-Banfield/Splatoon-3-Countdown/master/Splatoon%203%20Countdown/Information.json?token=GHSAT0AAAAAABXBFXDL6VQ7T5GJAO47K44QYXRJ37A";
+
+        private DateTime countdownEndDate;
 
         #endregion
 
@@ -65,7 +67,25 @@ namespace Splatoon_3_Countdown
 
         private void UpdateControls(string backgroundURL, string countdownName, string countdownFinishedText, DateTime countdownEndDate)
         {
+            backgroundPictureBox.LoadAsync(backgroundURL);
             titleLabel.Text = countdownName;
+            this.countdownEndDate = countdownEndDate;
+
+            StartCountdown(countdownFinishedText);
+        }
+
+        private void StartCountdown(string finishedText)
+        {
+            Timer timer = new Timer();
+            timer.Interval = 500;
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan timeSpan = countdownEndDate.Subtract(DateTime.Now);
+            countdownLabel.Text = timeSpan.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'");
         }
 
         #endregion
