@@ -56,6 +56,7 @@ namespace Splatoon_3_Countdown
             this.Name = "CountdownForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splatoon 3 - Countdown";
+            this.Load += new System.EventHandler(this.CountdownForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.backgroundPictureBox)).EndInit();
             this.ResumeLayout(false);
 
