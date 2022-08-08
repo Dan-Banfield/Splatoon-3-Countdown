@@ -10,7 +10,7 @@ namespace Splatoon_3_Countdown
     {
         #region Private Variables
 
-        private const string JSON_ENDPOINT = "https://raw.githubusercontent.com/Dan-Banfield/Splatoon-3-Countdown/master/Splatoon%203%20Countdown/Information.json?token=GHSAT0AAAAAABXBFXDL6VQ7T5GJAO47K44QYXRJ37A";
+        private const string JSON_ENDPOINT = "https://pastebin.com/raw/7bA37KWH";
 
         private DateTime countdownEndDate;
 
@@ -31,6 +31,14 @@ namespace Splatoon_3_Countdown
             await UpdateViewInformationAsync();
         }
 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            CheckForCountdownEnd();
+
+            TimeSpan timeSpan = countdownEndDate.Subtract(DateTime.Now);
+            countdownLabel.Text = timeSpan.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'");
+        }
+
         #endregion
 
         #region Methods
@@ -45,6 +53,11 @@ namespace Splatoon_3_Countdown
                 return;
             }
 
+            ShowDataErrorMessage();
+        }
+
+        private void ShowDataErrorMessage()
+        {
             MessageBox.Show("Failed to fetch the latest information! Please connect to the internet and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Application.Exit();
         }
@@ -78,24 +91,25 @@ namespace Splatoon_3_Countdown
 
         private void StartCountdown(string finishedText)
         {
-            countdownFinishedText = finishedText;
+            this.countdownFinishedText = finishedText;
+
+            #region Timer Initialization
 
             countdownTimer = new Timer();
             countdownTimer.Interval = 500;
             countdownTimer.Tick += Timer_Tick;
             countdownTimer.Start();
+
+            #endregion
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void CheckForCountdownEnd()
         {
             if (DateTime.Now >= countdownEndDate)
             {
                 countdownTimer.Stop();
                 countdownLabel.Text = countdownFinishedText;
             }
-
-            TimeSpan timeSpan = countdownEndDate.Subtract(DateTime.Now);
-            countdownLabel.Text = timeSpan.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'");
         }
 
         #endregion
