@@ -14,6 +14,9 @@ namespace Splatoon_3_Countdown
 
         private DateTime countdownEndDate;
 
+        private Timer countdownTimer;
+        private string countdownFinishedText = string.Empty;
+
         #endregion
 
         public CountdownForm()
@@ -38,7 +41,7 @@ namespace Splatoon_3_Countdown
 
             if (await Task.Run(() => GetInformation(out information)))
             {
-                UpdateControls(information.backgroundURL, information.countdownName, information.countdownFinishedText, information.countdownEndDate);
+                UpdateControls(information.backgroundURL, information.countdownFinishedText, information.countdownEndDate);
                 return;
             }
 
@@ -65,10 +68,9 @@ namespace Splatoon_3_Countdown
             }
         }
 
-        private void UpdateControls(string backgroundURL, string countdownName, string countdownFinishedText, DateTime countdownEndDate)
+        private void UpdateControls(string backgroundURL, string countdownFinishedText, DateTime countdownEndDate)
         {
             backgroundPictureBox.LoadAsync(backgroundURL);
-            titleLabel.Text = countdownName;
             this.countdownEndDate = countdownEndDate;
 
             StartCountdown(countdownFinishedText);
@@ -76,14 +78,22 @@ namespace Splatoon_3_Countdown
 
         private void StartCountdown(string finishedText)
         {
-            Timer timer = new Timer();
-            timer.Interval = 500;
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            countdownFinishedText = finishedText;
+
+            countdownTimer = new Timer();
+            countdownTimer.Interval = 500;
+            countdownTimer.Tick += Timer_Tick;
+            countdownTimer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            if (DateTime.Now >= countdownEndDate)
+            {
+                countdownTimer.Stop();
+                countdownLabel.Text = countdownFinishedText;
+            }
+
             TimeSpan timeSpan = countdownEndDate.Subtract(DateTime.Now);
             countdownLabel.Text = timeSpan.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'");
         }
