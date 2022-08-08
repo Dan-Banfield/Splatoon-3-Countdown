@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Splatoon_3_Countdown
 {
-    public partial class Form1 : Form
+    public partial class CountdownForm : Form
     {
-        public Form1()
+        public CountdownForm()
         {
             InitializeComponent();
         }

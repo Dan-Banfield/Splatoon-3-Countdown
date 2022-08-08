@@ -16,7 +16,7 @@ namespace Splatoon_3_Countdown
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new CountdownForm());
         }
     }
 }
