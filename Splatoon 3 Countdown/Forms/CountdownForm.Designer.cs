@@ -31,11 +31,13 @@ namespace Splatoon_3_Countdown
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CountdownForm));
             this.backgroundPictureBox = new System.Windows.Forms.PictureBox();
+            this.titleLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.backgroundPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // backgroundPictureBox
             // 
+            this.backgroundPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(27)))), ((int)(((byte)(35)))));
             this.backgroundPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.backgroundPictureBox.Location = new System.Drawing.Point(0, 0);
             this.backgroundPictureBox.Name = "backgroundPictureBox";
@@ -43,11 +45,24 @@ namespace Splatoon_3_Countdown
             this.backgroundPictureBox.TabIndex = 0;
             this.backgroundPictureBox.TabStop = false;
             // 
+            // titleLabel
+            // 
+            this.titleLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(27)))), ((int)(((byte)(35)))));
+            this.titleLabel.Font = new System.Drawing.Font("Splatfont 2", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
+            this.titleLabel.Location = new System.Drawing.Point(12, 9);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(650, 58);
+            this.titleLabel.TabIndex = 1;
+            this.titleLabel.Text = "Loading...";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CountdownForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 354);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.backgroundPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -65,6 +80,7 @@ namespace Splatoon_3_Countdown
         #endregion
 
         private System.Windows.Forms.PictureBox backgroundPictureBox;
+        private System.Windows.Forms.Label titleLabel;
     }
 }
 

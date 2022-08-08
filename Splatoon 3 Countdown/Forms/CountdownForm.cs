@@ -36,7 +36,7 @@ namespace Splatoon_3_Countdown
 
             if (await Task.Run(() => GetInformation(out information)))
             {
-                // TODO: Update controls.
+                UpdateControls(information.backgroundURL, information.countdownName, information.countdownFinishedText, information.countdownEndDate);
                 return;
             }
 
@@ -61,6 +61,11 @@ namespace Splatoon_3_Countdown
                     return false;
                 }
             }
+        }
+
+        private void UpdateControls(string backgroundURL, string countdownName, string countdownFinishedText, DateTime countdownEndDate)
+        {
+            titleLabel.Text = countdownName;
         }
 
         #endregion
