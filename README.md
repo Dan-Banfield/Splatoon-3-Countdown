@@ -5,3 +5,6 @@ Release date & news countdown for Splatoon 3.
 
 ## Installation
 To install the application, download the latest release [here.](https://github.com/Dan-Banfield/Splatoon-3-Countdown/releases/tag/Release)
+
+## Screenshots
+![Splatoon 3 Countdown Screenshot](https://raw.githubusercontent.com/Dan-Banfield/Splatoon-3-Countdown/master/Splatoon%203%20Countdown/Images/Splatoon%203%20Countdown%20Screenshot.png)
