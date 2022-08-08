@@ -41,6 +41,7 @@ namespace Splatoon_3_Countdown
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.backgroundPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.backgroundPictureBox.Image = global::Splatoon_3_Countdown.Properties.Resources.LoadingBackground;
             this.backgroundPictureBox.Location = new System.Drawing.Point(0, 0);
             this.backgroundPictureBox.Name = "backgroundPictureBox";
             this.backgroundPictureBox.Size = new System.Drawing.Size(707, 366);

@@ -24,6 +24,16 @@ namespace Splatoon_3_Countdown
             InitializeComponent();
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleParam = base.CreateParams;
+                handleParam.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED       
+                return handleParam;
+            }
+        }
+
         #region Event Handlers
 
         private async void CountdownForm_Load(object sender, EventArgs e)
