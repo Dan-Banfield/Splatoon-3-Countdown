@@ -43,7 +43,8 @@ namespace Splatoon_3_Countdown
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            CheckForCountdownEnd();
+            if (CheckForCountdownEnd())
+                return;
 
             TimeSpan timeSpan = countdownEndDate.Subtract(DateTime.Now);
             countdownLabel.Text = timeSpan.ToString("d' Days 'h' Hours 'm' Minutes 's' Seconds'");
@@ -113,13 +114,15 @@ namespace Splatoon_3_Countdown
             #endregion
         }
 
-        private void CheckForCountdownEnd()
+        private bool CheckForCountdownEnd()
         {
             if (DateTime.Now >= countdownEndDate)
             {
                 countdownTimer.Stop();
                 countdownLabel.Text = countdownFinishedText;
+                return true;
             }
+            return false;
         }
 
         #endregion
